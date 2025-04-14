@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+
+/* Use a pointer to track non zero index */
 var applyOperations = function (nums) {
   // First pass: combine equal adjacent numbers
   for (let i = 0; i < nums.length - 1; i++) {
