@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-/* Calculate total sums then minus with the left sums */
+/* Calculate total sum, then subtract left-side sum during iteration to get right-side sum */
 var countPartitions = function (nums) {
   const totalSum = nums.reduce((a, b) => a + b, 0);
   var leftSum = 0;
