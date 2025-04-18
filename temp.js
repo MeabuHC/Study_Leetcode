@@ -1,28 +1,12 @@
 /**
- * @param {character[]} chars
+ * @param {number[]} nums
+ * @param {number} k
  * @return {number}
  */
-var compress = function (chars) {
-  var count = 1;
-  var writePos = 0;
+var maxOperations = function (nums, k) {
+  var map = new Map();
 
-  for (var i = 1; i <= chars.length; i++) {
-    if (i < chars.length && chars[i] === chars[i - 1]) {
-      count += 1;
-    } else {
-      chars[writePos++] = chars[i - 1];
-
-      if (count > 1) {
-        for (var digit of count.toString()) {
-          chars[writePos++] = digit;
-        }
-      }
-
-      count = 1;
-    }
+  // Populate the map with frequencies of each number
+  for (var num of nums) {
   }
-
-  return writePos;
 };
-
-compress(["a", "a", "b", "b", "c", "c", "c"]);
