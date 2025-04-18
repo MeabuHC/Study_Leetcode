@@ -20,21 +20,12 @@ var applyOperations = function (nums) {
     }
   }
 
-  for (let i = 0, non_zero_idx = 0; i < nums.length; i++) {
-    if (nums[i] === 0) {
-      while (non_zero_idx < nums.length) {
-        if (nums[non_zero_idx] !== 0) {
-          nums[i] = nums[non_zero_idx];
-          nums[non_zero_idx] = 0;
-          non_zero_idx++;
-          break;
-        }
-        non_zero_idx++;
-      }
+  let left = 0;
 
-      if (non_zero_idx === nums.length) break;
-    } else {
-      non_zero_idx = i + 1;
+  for (let right = 0; right < nums.length; right++) {
+    if (nums[right] !== 0) {
+      [nums[right], nums[left]] = [nums[left], nums[right]];
+      left++;
     }
   }
 

@@ -1,6 +1,28 @@
-let nums = [2, 3, 4];
-let temp = nums[1]; // temp = 3
-nums[1] = 99;
+/**
+ * @param {character[]} chars
+ * @return {number}
+ */
+var compress = function (chars) {
+  var count = 1;
+  var writePos = 0;
 
-console.log("temp:", temp); // 👉 still 3
-console.log("nums[1]:", nums[1]); // 👉 now 99
+  for (var i = 1; i <= chars.length; i++) {
+    if (i < chars.length && chars[i] === chars[i - 1]) {
+      count += 1;
+    } else {
+      chars[writePos++] = chars[i - 1];
+
+      if (count > 1) {
+        for (var digit of count.toString()) {
+          chars[writePos++] = digit;
+        }
+      }
+
+      count = 1;
+    }
+  }
+
+  return writePos;
+};
+
+compress(["a", "a", "b", "b", "c", "c", "c"]);
